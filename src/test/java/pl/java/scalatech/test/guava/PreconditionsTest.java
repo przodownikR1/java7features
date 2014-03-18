@@ -31,14 +31,12 @@ public class PreconditionsTest {
     public void shouldPlainJavaValidationNPEThrow() {
         exception.expect(NullPointerException.class);
         if (null == login) { throw new NullPointerException("login must not be null"); }
-
     }
 
     @Test
     public void shouldPlainJavaValidationIllegalArgumentExceptionThrow() {
         exception.expect(IllegalArgumentException.class);
         if (first >= second) { throw new IllegalArgumentException("fist (" + first + ") must be smaller than second (" + second + ")"); }
-
     }
 
     @Test
@@ -46,7 +44,6 @@ public class PreconditionsTest {
         String name = "przodownik";
         String returned = checkNotNull(name, " null");
         Assertions.assertThat(returned).isEqualTo(name);
-
     }
 
     @Test
@@ -54,7 +51,6 @@ public class PreconditionsTest {
         exception.expect(IllegalArgumentException.class);
         Assert.notNull(login, "login must not be null");
         Assert.isTrue(first < second, "first (" + first + ") must be smaller than second (" + second + ")");
-
     }
 
     @Test
@@ -62,29 +58,24 @@ public class PreconditionsTest {
         exception.expect(IllegalArgumentException.class);
         Validate.notNull(login, "login must not be null");
         Validate.isTrue(first < second, "first " + first + "  must be smaller than second" + second);
-
     }
 
     @Test
     public void shouldGuavaPreconditionsCheckNPEThrow() {
         exception.expect(NullPointerException.class);
         Preconditions.checkNotNull(login, "login must not be null");
-
     }
 
     @Test
     public void shouldGuavaPreconditionsCheckIllegalArgumentThrow() {
         exception.expect(IllegalArgumentException.class);
         Preconditions.checkArgument(first < second, "first (%s) must be smaller than second (%s)", first, second);
-
     }
 
     @Test
     public void shouldPlainJavaAsserts() {
-
         assert (null != login) : "login must not be null";
         assert (first < second) : "first (" + first + ") must be smaller than second (" + second + ")";
-
     }
 
     @Test
@@ -92,7 +83,6 @@ public class PreconditionsTest {
         int index = 11;
         exception.expect(IndexOutOfBoundsException.class);
         checkElementIndex(index, values.length, "Index out of bounds for values");
-
     }
 
     @Test
