@@ -11,4 +11,5 @@ ext {
       lombokVersion = "1.12.4"
       guavaVersion = "16.0.1"
       javaVersion = "1.7"
+      springVersion = "4.0.2.RELEASE"
 }
