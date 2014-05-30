@@ -24,7 +24,7 @@ public class CatchExceptionGuava {
     private final static String SQL_EXCEPTION = "retrieve data error ...";
     @Rule
     public ExpectedException thrown = ExpectedException.none();
- 
+
     @Test
     public void shouldThrowSomeException() throws Exception {
         // given
@@ -32,31 +32,29 @@ public class CatchExceptionGuava {
         thrown.expectMessage(SQL_EXCEPTION);
         ExampleBean exampleBean = new ExampleBean();
         // when
-        exampleBean.doSomething(1); 
+        exampleBean.doSomething(1);
         // then
         fail("SQLException should throw");
     }
-    
-    
 
     @Test
     public void shouldCatchIOException() throws IOException, SQLException {
-        //given
+        // given
         ExampleBean exampleBean = new ExampleBean();
-        //when
+        // when
         catchException(exampleBean).doSomething(2);
-        //then
+        // then
         Assertions.assertThat(caughtException()).isExactlyInstanceOf(IOException.class);
 
     }
 
     @Test
     public void shouldCatchSqlException() throws IOException, SQLException {
-        //given
+        // given
         ExampleBean exampleBean = new ExampleBean();
-        //when
+        // when
         catchException(exampleBean).doSomething(1);
-        //then
+        // then
         Assertions.assertThat(caughtException()).isExactlyInstanceOf(SQLException.class).hasMessage(SQL_EXCEPTION);
 
     }

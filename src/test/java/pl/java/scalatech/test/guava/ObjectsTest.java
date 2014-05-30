@@ -5,6 +5,11 @@ import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 
 import org.junit.Test;
+/**
+ * @author przodownik
+ * Module name :    java7features
+ * Creating time :  30 maj 2014
+ */
 @Slf4j
 public class ObjectsTest {
     @Test
