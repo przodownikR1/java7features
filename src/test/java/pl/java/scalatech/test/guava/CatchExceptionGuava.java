@@ -37,7 +37,7 @@ public class CatchExceptionGuava {
         fail("SQLException should throw");
     }
 
-    @Test
+   /* @Test
     public void shouldCatchIOException() throws IOException, SQLException {
         // given
         ExampleBean exampleBean = new ExampleBean();
@@ -57,6 +57,6 @@ public class CatchExceptionGuava {
         // then
         Assertions.assertThat(caughtException()).isExactlyInstanceOf(SQLException.class).hasMessage(SQL_EXCEPTION);
 
-    }
+    }*/
 
 }
