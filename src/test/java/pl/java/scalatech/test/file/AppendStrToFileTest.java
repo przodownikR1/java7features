@@ -31,7 +31,7 @@ public class AppendStrToFileTest {
     private File file;
 
     @Before
-    public void clean() throws IOException {
+    public void init() throws IOException {
         testFolder.newFolder("test_");
         file = testFolder.newFile("t.txt");
         log.info("file :  {}", file.getAbsolutePath());
