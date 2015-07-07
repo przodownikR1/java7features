@@ -79,6 +79,29 @@ public class AppendStrToFileTest {
         assertThat(Files.readLines(file, Charsets.UTF_8)).contains("przodownik");
     }
 
+    @Test
+    public void shouldGuavaAppendTextToFile() throws IOException {
+        Files.append("przodownik", file, Charsets.UTF_8);
+        assertThat(Files.readLines(file, Charsets.UTF_8)).hasSize(1);
+        assertThat(Files.readLines(file, Charsets.UTF_8)).contains("przodownik");
+    }
+
+    @Test
+    public void shouldRetrieveContentFromFile() throws IOException {
+        //given
+        writeToFile(file, "przodownik");
+        assertThat(Files.readLines(file, Charsets.UTF_8)).hasSize(1);
+        assertThat(Files.readLines(file, Charsets.UTF_8)).contains("przodownik");
+        //then
+        final String fileContents = Files.toString(file, Charset.defaultCharset());
+        assertThat(fileContents).isEqualTo("przodownik");
+    }
+
+    @Test
+    public void shouldFindLocation() {
+
+    }
+
     private void writeToFile(File file, String contents) {
         checkNotNull(file, "File must exits");
         checkNotNull(contents, "Unable to write null contents.");
